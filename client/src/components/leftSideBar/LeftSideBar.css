@@ -1,13 +1,22 @@
 .left-sidebar{
     width: 164px;
     box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+    background-color: white;
+    padding-left: 20px;
+    height: auto;
+    min-height: 100vh;
     transition: box-shadow ease-in-out 0.1s,transform ease-in-out 0.1s;
-    transform: translateZ(0);
     box-sizing: border-box;
     font-size: 13px;
 }
+.nav-btn {
+    background-color: inherit;
+    width: 100%;
+    border: none;
+    padding: 0%;
+  }
+  
 .side-nav{
-    /* min-height: 90vh; */
     height: auto;
     max-width: 100%;
     position: sticky;
@@ -38,3 +47,13 @@
     background-color:rgba(225,225,225) ;
     border-right:solid 3px #ef8236 ;
 }
+
+@media screen and (max-width: 760px) {
+    .left-sidebar {
+      position: absolute;
+      transform: translateX(-100%);
+      z-index: 10;
+      padding: 0;
+    }
+  }
+  

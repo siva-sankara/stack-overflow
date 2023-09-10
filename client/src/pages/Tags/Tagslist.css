@@ -1,7 +1,4 @@
-.tags-container{
-    flex-direction: column;
-   padding-right: 24px;
-}
+
 .tags-h1{
     margin-top: 50px ;
     font-weight: 400;
@@ -13,7 +10,7 @@
 .tags-list-container{
     padding: 30px 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px ,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px ,1fr));
     gap: 10px;
 }
 .tag{

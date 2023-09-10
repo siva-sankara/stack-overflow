@@ -1,14 +1,15 @@
 import axios from "axios";
 
 const API = axios.create({
-  // baseURL: "http://localhost:8080",
-  baseURL: "https://stack-overflow-backend-gwva.onrender.com",
-
+  baseURL: "http://localhost:8080",
+  // baseURL: "https://stack-overflow-backend-gwva.onrender.com",
 });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("Profile")) {
-    req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem('Profile')).token}`;
+    req.headers.authorization = `Bearer ${
+      JSON.parse(localStorage.getItem("Profile")).token
+    }`;
   }
   return req;
 });
@@ -33,7 +34,7 @@ export const postAnswer = (id, noOfAnswers, answerBody, userAnswered, userId) =>
 export const deleteAnswer = (id, answerId, noOfAnswers) =>
   API.patch(`/answer/delete/${id}`, { answerId, noOfAnswers });
 
+export const fetchAllUsers = () => API.get("/user/getAllUsers");
 
-export const fetchAllUsers = () => API.get('/user/getAllUsers')
-
-export const updateProfile =(id, updateData)=> API.patch(`/user/update/${id}`, updateData)
+export const updateProfile = (id, updateData) =>
+  API.patch(`/user/update/${id}`, updateData);

@@ -51,7 +51,7 @@ export const postAnswer = (answerData) => async (dispatch) => {
     dispatch({ type: "POST_ANSWER", payload : data });
     dispatch(fetchAllQuestios());
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 };
 

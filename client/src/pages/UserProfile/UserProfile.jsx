@@ -9,7 +9,7 @@ import moment from "moment";
 import EditProfile from "./EditProfile";
 import ProfileBio from "./ProfileBio";
 
-const UserProfile = () => {
+const UserProfile = ({ slideIn, handleSlideIn }) => {
   const { id } = useParams();
   const users = useSelector((state) => state.usersReducer);
   const currentProfile = users.filter((user) => user._id === id)[0];
@@ -19,7 +19,7 @@ const UserProfile = () => {
 
   return (
     <div className=".home-container-1 profile-main-container">
-      <LeftSideBar />
+      <LeftSideBar slideIn={slideIn} handleSlideIn={handleSlideIn} />
       <div className=""></div>
       <div className=" profile-main-container-2">
         <section>

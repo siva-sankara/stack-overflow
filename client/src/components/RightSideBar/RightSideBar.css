@@ -15,6 +15,7 @@
     margin: 0%;
     padding: 15px;
     border: solid 1px #f1e5bc;
+    font-size: 13px;
 }
 .right-sidebar-div-1{
     background-color: #fdf7e2;
@@ -58,3 +59,8 @@
     font-size: 14px;
     border-radius: 2px;
 }
+@media screen and (max-width: 1020px) {
+    .right-sidebar {
+      display: none;
+    }
+  }

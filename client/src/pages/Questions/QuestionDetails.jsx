@@ -23,11 +23,12 @@ const QuestionDetails = () => {
 
   const questionList = useSelector((state) => state.questionsReducer);
   const user = useSelector((state) => state.currentUserReducer);
-  {console.log(questionList.data);}
+  {
+    console.log(questionList.data);
+  }
   const [answer, setAnswer] = useState("");
-  // const url = "http://localhost:3000";
-  const url = "https://stack-overflow-backend-gwva.onrender.com";
-
+  const url = "http://localhost:3000";
+  // const url = "https://stack-overflow-backend-gwva.onrender.com";
 
   const handlePostAnswer = (e, answerLength) => {
     e.preventDefault();
@@ -54,7 +55,7 @@ const QuestionDetails = () => {
 
   const handleShare = () => {
     copy(url + location.pathname);
-    alert("copy url :"+ url + location.pathnam);
+    alert("copy url :" + url + location.pathnam);
   };
 
   const handleDelete = () => {
@@ -66,7 +67,7 @@ const QuestionDetails = () => {
       alert("Login or Signup to up vote a question");
       navigate("/Auth");
     } else {
-    dispatch(voteQuestion(id, "upVote", user?.result._id));
+      dispatch(voteQuestion(id, "upVote", user?.result._id));
     }
   };
 
@@ -77,7 +78,6 @@ const QuestionDetails = () => {
     } else {
       dispatch(voteQuestion(id, "downVote", user?.result._id));
     }
-   
   };
 
   // const questionList = [
@@ -184,8 +184,7 @@ const QuestionDetails = () => {
   // ];
   return (
     <div className="question-details-page">
-      
-      {questionList.data === null ?(
+      {questionList.data === null ? (
         <h1>Loading.....</h1>
       ) : (
         <div>
