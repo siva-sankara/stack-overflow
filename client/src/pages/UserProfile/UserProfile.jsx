@@ -18,10 +18,9 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
   const [Switch, setSwitch] = useState(false);
 
   return (
-    <div className=".home-container-1 profile-main-container">
+    <div className="home-container-1 ">
       <LeftSideBar slideIn={slideIn} handleSlideIn={handleSlideIn} />
-      <div className=""></div>
-      <div className=" profile-main-container-2">
+      <div className=" home-container-2">
         <section>
           <div className="user-details-container">
             <div className="user-details">

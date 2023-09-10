@@ -7,22 +7,6 @@
     justify-content: space-between;
 }
 
-
-.profile-main-container{
-    display: flex;
-    min-height: 100vh;
-    padding-right: 24px;
-    
-}
-.profile-main-container-2{
-    display: block;
-    max-width: 1200px;
-    width:calc(100% - 164px);
-    border: 1px solid #d6d9dc;
-    padding: 24px 24px 24px 24px ;
-    box-sizing: border-box;
-}
-
 .user-details{
     display: flex;
     align-items: flex-start;
@@ -91,3 +75,8 @@
     margin-left: 10px;
     cursor: pointer;
 }
+@media screen and (max-width: 760px) {
+    .edit-profile-form label input , .edit-profile-form label textarea {
+      width: 100%;
+    }
+  }
