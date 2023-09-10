@@ -23,7 +23,7 @@ const QuestionDetails = () => {
 
   const questionList = useSelector((state) => state.questionsReducer);
   const user = useSelector((state) => state.currentUserReducer);
-
+  {console.log(questionList.data);}
   const [answer, setAnswer] = useState("");
   const url = "http://localhost:3000";
 
@@ -182,10 +182,11 @@ const QuestionDetails = () => {
   // ];
   return (
     <div className="question-details-page">
-      {questionList.data === null ? (
+      
+      {questionList.data === null ?(
         <h1>Loading.....</h1>
       ) : (
-        <>
+        <div>
           {questionList.data
             .filter((que) => {
               return que._id === id;
@@ -193,6 +194,7 @@ const QuestionDetails = () => {
             .map((question) => {
               return (
                 <div key={question._id}>
+                  {console.log(question)}
                   <section className="question-details-container">
                     <h1>{question.questionTitle}</h1>
                     <div className="question-details-container-2">
@@ -306,7 +308,7 @@ const QuestionDetails = () => {
                 </div>
               );
             })}
-        </>
+        </div>
       )}
     </div>
   );
