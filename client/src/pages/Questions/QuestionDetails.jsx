@@ -25,7 +25,9 @@ const QuestionDetails = () => {
   const user = useSelector((state) => state.currentUserReducer);
   {console.log(questionList.data);}
   const [answer, setAnswer] = useState("");
-  const url = "http://localhost:3000";
+  // const url = "http://localhost:3000";
+  const url = "https://stack-overflow-backend-gwva.onrender.com";
+
 
   const handlePostAnswer = (e, answerLength) => {
     e.preventDefault();
