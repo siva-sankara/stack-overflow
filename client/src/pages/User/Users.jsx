@@ -4,8 +4,6 @@ import LeftSideBar from "../../components/leftSideBar/LeftSideBar";
 import { useLocation } from "react-router-dom";
 import UsersList from "./UsersList";
 const Users = ({ slideIn, handleSlideIn }) => {
-  const location = useLocation();
-
   return (
     <div className="home-container-1">
       <LeftSideBar slideIn={slideIn} handleSlideIn={handleSlideIn} />

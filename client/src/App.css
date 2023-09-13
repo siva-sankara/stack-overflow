@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .home-container-1{
     max-width: 1250px;
     min-height: 100vh;

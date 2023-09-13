@@ -9,6 +9,7 @@ import DisplayQuestionsList from "./pages/Questions/DisplayQuestionsList";
 import Tags from "./pages/Tags/Tags";
 import Users from "./pages/User/Users";
 import UserProfile from "./pages/UserProfile/UserProfile";
+import ChatBot from "./components/chatbot/ChatBot";
 
 const RoutesPage = ({ slideIn, handleSlideIn }) => {
   return (
@@ -54,6 +55,13 @@ const RoutesPage = ({ slideIn, handleSlideIn }) => {
           exact
           element={
             <UserProfile slideIn={slideIn} handleSlideIn={handleSlideIn} />
+          }
+        />
+        <Route
+          path="/chatBot"
+          exact
+          element={
+            <ChatBot />
           }
         />
       </Routes>

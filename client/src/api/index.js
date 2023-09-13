@@ -1,21 +1,27 @@
 import axios from "axios";
 
 const API = axios.create({
-  // baseURL: "http://localhost:8080",
-  baseURL: "https://stack-overflow-backend-gwva.onrender.com",
+  baseURL: "http://localhost:8080",
+  // baseURL: "https://stack-overflow-backend-gwva.onrender.com",
 });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("Profile")) {
     req.headers.authorization = `Bearer ${
       JSON.parse(localStorage.getItem("Profile")).token
-    }`;
+    }`; 
   }
   return req;
 });
 
 export const logIn = (authData) => API.post("/user/login", authData);
 export const signUp = (authData) => API.post("/user/signup", authData);
+
+//chatbot backend calls 
+export const sendQuery = (query) => API.post('/chatbot/chatInput',query)
+
+export const deleteQuery =()=> API.get('/chatbot/chatDelete')
+
 
 export const postQuestion = (questionData) =>
   API.post("/questions/Ask", questionData);
