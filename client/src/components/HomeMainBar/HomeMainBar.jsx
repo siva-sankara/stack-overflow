@@ -33,6 +33,14 @@ const HomeMainBar = () => {
     }
   };
 
+  const handleChatBot=()=>{
+    if(localStorage.getItem("Profile")){
+      setChatBotIn(!ChatBotIn)
+    }else{
+      navigate('/Auth')
+    }
+  }
+
   return (
     <div className="main-bar">
       <div className="main-bar-header">
@@ -62,15 +70,15 @@ const HomeMainBar = () => {
           </div>
         </div>
       )}
-      {localStorage.getItem("Profile") && (
+      {/* {localStorage.getItem("Profile") && ( */}
         <div className="chatbot-icon">
           <img
             src={bot}
             className="bot-icon"
-            onClick={() => setChatBotIn(!ChatBotIn)}
+            onClick={ handleChatBot}
           />
         </div>
-      )}
+      {/* )} */}
     </div>
   );
 };

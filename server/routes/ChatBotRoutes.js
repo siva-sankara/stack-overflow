@@ -5,6 +5,6 @@ const chatBotRouter = express.Router();
 
 chatBotRouter.post('/chatInput',auth,chatBotInput)
 
-chatBotRouter.get('/chatDelete',auth,chatDelete)
+chatBotRouter.get('/chatDelete',chatDelete)
 
 module.exports  = chatBotRouter

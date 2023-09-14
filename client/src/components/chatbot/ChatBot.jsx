@@ -7,7 +7,7 @@ const ChatBot = () => {
 
   const sendMessage = async () => {
     try {
-      let question = { question: `"${input}" Explain me in 30 words` };
+      let question = { question: `"${input}" reply me in 30 words` };
       const response = await api.sendQuery(question);
 
       const pair = { question: input, answer: response.data.answer };
