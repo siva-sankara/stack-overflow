@@ -5,6 +5,7 @@ const connectdb = require('./config/dbConnect');
 const questionRoute = require('./routes/Question');
 const answerRoutes = require('./routes/answerRouter');
 const chatBotRouter = require('./routes/ChatBotRoutes');
+const paymentRoutes = require('./routes/paymentRoutes')
 require('dotenv').config();
 
 const app = express();
@@ -21,6 +22,8 @@ app.use('/questions', questionRoute)
 app.use('/answer',answerRoutes)
 
 app.use('/chatbot',chatBotRouter)
+
+app.use('/payment', paymentRoutes)
 
 const PORT = process.env.PORT || 8080
 

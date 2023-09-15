@@ -10,6 +10,7 @@ import Tags from "./pages/Tags/Tags";
 import Users from "./pages/User/Users";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import ChatBot from "./components/chatbot/ChatBot";
+import PaymnetPage from "./components/payment/PaymnetPage";
 
 const RoutesPage = ({ slideIn, handleSlideIn }) => {
   return (
@@ -62,6 +63,13 @@ const RoutesPage = ({ slideIn, handleSlideIn }) => {
           exact
           element={
             <ChatBot />
+          }
+        />
+         <Route
+          path="/payment"
+          exact
+          element={
+            <PaymnetPage />
           }
         />
       </Routes>

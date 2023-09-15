@@ -13,7 +13,7 @@ const askQuestion = async (req, res) => {
     console.log(error);
     res.status(400).json("Couldn't post a new question");
   }
-};
+}
 const getAllQuestion = async (req, res) => {
   try {
     const questionList = await Question.find().sort({ askedOn: -1 });

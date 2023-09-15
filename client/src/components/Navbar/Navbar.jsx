@@ -12,7 +12,6 @@ const Navbar = ({ handleSlideIn }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.currentUserReducer);
-
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
     navigate("/");
@@ -40,8 +39,8 @@ const Navbar = ({ handleSlideIn }) => {
           <Link to="/" className="nav-item nav-logo">
             <img src={logo} alt="logo" />
           </Link>
-          <Link to="/" className="nav-item nav-btn res-nav">
-            About
+          <Link to="/payment" className="nav-item nav-btn res-nav">
+            Subscription
           </Link>
           <Link to="/" className="nav-item nav-btn res-nav ">
             Products

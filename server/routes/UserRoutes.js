@@ -1,6 +1,6 @@
 const express = require("express");
 const { signUp, logIn } = require("../controllers/auth");
-const {getAllUsers ,updateProfile} = require("../controllers/Users");
+const {getAllUsers ,updateProfile, updateProfileImage} = require("../controllers/Users");
 const auth = require("../middlewares/auth");
 
 const router = express.Router();
