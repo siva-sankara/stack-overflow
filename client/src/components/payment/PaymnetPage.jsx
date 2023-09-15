@@ -3,10 +3,11 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./payment.css";
+import LeftSideBar from "../leftSideBar/LeftSideBar";
 // const BASE_URL = "http://localhost:8080";
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://stack-overflow-backend-gwva.onrender.com";
 
-const PaymnetPage = () => {
+const PaymnetPage = ({ slideIn, handleSlideIn }) => {
   const navigate = useNavigate();
 
   const [amount, setAmount] = useState({
@@ -50,63 +51,62 @@ const PaymnetPage = () => {
   };
 
   const handlePayment = async () => {
-	if(user)
-	{
-		try {
-			const orderUrl = `${BASE_URL}/payment/pay`;
-			if (amount.price === 0) {
-			  alert("please select valid subscription");
-			} else {
-			  const { data } = await axios.post(orderUrl, { amount: amount.price });
-			  console.log(data);
-			  initPayment(data.data);
-
-			}
-		  } catch (error) {
-			console.log(error);
-		  }
-	}else{
-		alert("LOGIN is required")
-		navigate('/Auth')
-	}
-   
+    if (user) {
+      try {
+        const orderUrl = `${BASE_URL}/payment/pay`;
+        if (amount.price === 0) {
+          alert("please select valid subscription");
+        } else {
+          const { data } = await axios.post(orderUrl, { amount: amount.price });
+          console.log(data);
+          initPayment(data.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert("LOGIN is required");
+      navigate("/Auth");
+    }
   };
   return (
-    <div className="subscription-conaiter">
-		<u><h1>Subscription Plan's</h1></u>
-      <div className="select-subscription">
-	  
-        <div
-          className="each-subscription"
-          onClick={() => setAmount({ name: "Normal", price: 100 })}
-        >
-          <h2>Normal</h2>
-		  <hr className="hr-line"/>
-          <p>RS : 100</p>
-        </div>
-        <div
-          className="each-subscription"
-          onClick={() => setAmount({ name: "Silver", price: 500 })}
-        >
-          <h2>Silver</h2>
-		  <hr className="hr-line"/>
+    <div className="homme-conatiner-1 subscription-main">
+      <LeftSideBar slideIn={slideIn} handleSlideIn={handleSlideIn} />
+      <div className="home-container-2 sub-subscription">
+        <u><h1 className="subscription-heading">Subscription Plan's</h1></u>
+        <div className="select-subscription">
+          <div
+            className="each-subscription"
+            onClick={() => setAmount({ name: "Normal", price: 100 })}
+          >
+            <h2>Normal</h2>
+            <hr className="hr-line" />
+            <p>RS : 100</p>
+          </div>
+          <div
+            className="each-subscription"
+            onClick={() => setAmount({ name: "Silver", price: 500 })}
+          >
+            <h2>Silver</h2>
+            <hr className="hr-line" />
 
-          <p>RS : 500</p>
-        </div>
-        <div
-          className="each-subscription"
-          onClick={() => setAmount({ name: "Gold", price: 1000 })}
-        >
-          <h2>Gold</h2>
-		  <hr className="hr-line"/>
+            <p>RS : 500</p>
+          </div>
+          <div
+            className="each-subscription"
+            onClick={() => setAmount({ name: "Gold", price: 1000 })}
+          >
+            <h2>Gold</h2>
+            <hr className="hr-line" />
 
-          <p>RS : 1000</p>
+            <p>RS : 1000</p>
+          </div>
         </div>
+
+        <button onClick={handlePayment} className="buy_btn">
+          Subscribe
+        </button>
       </div>
-
-      <button onClick={handlePayment} className="buy_btn">
-        Subscribe
-      </button>
     </div>
   );
 };

@@ -66,10 +66,10 @@ const RoutesPage = ({ slideIn, handleSlideIn }) => {
           }
         />
          <Route
-          path="/payment"
+          path="/Subscription"
           exact
           element={
-            <PaymnetPage />
+            <PaymnetPage  slideIn={slideIn}  handleSlideIn={handleSlideIn} />
           }
         />
       </Routes>

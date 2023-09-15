@@ -39,7 +39,7 @@ const Navbar = ({ handleSlideIn }) => {
           <Link to="/" className="nav-item nav-logo">
             <img src={logo} alt="logo" />
           </Link>
-          <Link to="/payment" className="nav-item nav-btn res-nav">
+          <Link to="/Subscription" className="nav-item nav-btn res-nav">
             Subscription
           </Link>
           <Link to="/" className="nav-item nav-btn res-nav ">
