@@ -60,18 +60,12 @@
 
 @media screen and (max-width: 760px) {
     .left-sidebar {
-<<<<<<< HEAD
+
         position: absolute;
         transform: translateX(-100%);
         z-index: 10;
         padding: 0;
         height: auto;
-=======
-      position: absolute;
-      transform: translateX(-100%);
-      z-index: 10;
-      padding: 0;
-      height: auto;
->>>>>>> 0e0477ffc06093ff8bfda3eda1efbc083ee33049
+
     }
 }

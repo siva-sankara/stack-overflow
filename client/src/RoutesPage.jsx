@@ -70,11 +70,9 @@ const RoutesPage = ({ slideIn, handleSlideIn, theme }) => {
           path="/Subscription"
           exact
           element={
-<<<<<<< HEAD
             <PaymnetPage  slideIn={slideIn}  handleSlideIn={handleSlideIn} theme={theme} />
-=======
-            <PaymnetPage  slideIn={slideIn}  handleSlideIn={handleSlideIn} />
->>>>>>> 0e0477ffc06093ff8bfda3eda1efbc083ee33049
+  
+
           }
         />
       </Routes>

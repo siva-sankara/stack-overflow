@@ -1,22 +1,9 @@
-<<<<<<< HEAD
+
 .subscription-main {
     display: flex;
     text-align: center;
     padding: 0;
-=======
-.subscription-main{
-    display: flex;
-    text-align: center;
-    padding: 0;
-}
-.select-subscription{
-    max-width: 1100px;
-    width:calc(100% - 164px);
-    box-sizing: border-box;
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
->>>>>>> 0e0477ffc06093ff8bfda3eda1efbc083ee33049
+
 }
 
 .select-subscription {
@@ -47,12 +34,10 @@
     box-shadow: 0 2px 10px blue;
     border: none;
 }
-<<<<<<< HEAD
+
 
 .buy_btn {
-=======
-.buy_btn{
->>>>>>> 0e0477ffc06093ff8bfda3eda1efbc083ee33049
+
     padding: 15px 30px;
     color: white;
     background-color: blue;
@@ -75,19 +60,14 @@
     border: none;
     border-radius: 50%;
 }
-<<<<<<< HEAD
+
 
 .subscription-heading {
     padding-top: 30px;
     font-size: 40px;
 }
 
-=======
-.subscription-heading{
-    padding-top: 30px;
-    font-size: 40px;
-}
->>>>>>> 0e0477ffc06093ff8bfda3eda1efbc083ee33049
+
 @media screen and (max-width: 740px) {
     .subscription-conaiter {
         display: block;
@@ -96,12 +76,10 @@
     .select-subscription {
         display: block;
     }
-<<<<<<< HEAD
+
 
     .subscription-heading {
-=======
-    .subscription-heading{
->>>>>>> 0e0477ffc06093ff8bfda3eda1efbc083ee33049
+
         font-size: 30px;
     }
 }
