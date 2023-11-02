@@ -5,16 +5,19 @@ import AbouthAuth from "./AbouthAuth";
 import { logIn, signUp } from "../../actions/auth";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Auth = () => {
+const Auth = ({ theme }) => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
+
+  const notify = () => toast("Wow so easy!");
 
   const handleService = () => {
     setIsSignUp(!isSignUp);
@@ -26,7 +29,8 @@ const Auth = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email && !password) {
-      alert("Enter email and password");
+      alert("hwllo");
+      notify();
     }
     if (isSignUp) {
       if (!name) {
@@ -39,7 +43,7 @@ const Auth = () => {
   };
 
   return (
-    <section className="auth-section">
+    <section className={theme ? "auth-section theme-auth" : "auth-section"}>
       {isSignUp && <AbouthAuth />}
       <div className="auth-container-2">
         {!isSignUp && (

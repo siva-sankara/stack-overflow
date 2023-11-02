@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../asserts/logo.png";
@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../actions/CurrentUser";
 import decode from "jwt-decode";
 import bars from "../../asserts/bars-solid.svg";
-const Navbar = ({ handleSlideIn }) => {
+const Navbar = ({ handleSlideIn, theme, handleTheme }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.currentUserReducer);
@@ -26,27 +26,26 @@ const Navbar = ({ handleSlideIn }) => {
         handleLogout();
       }
     }
-    dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
+    dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))))
   }, [user?.token, dispatch]);
-
   return (
-    <nav className="main-nav">
+    <nav className={theme ?" main-nav nav-theme-set": "main-nav"}>
       <div className="navbar">
-        <button className="slide-in-icon" onClick={() => handleSlideIn()}>
+        <button className="slide-in-icon" onClick={handleSlideIn}>
           <img src={bars} alt="bars" width="15" />
         </button>
         <div className="navbar-1">
-          <Link to="/" className="nav-item nav-logo">
+          <Link to="/" className={theme ?"nav-item nav-logo theme-set ":"nav-item nav-logo"}>
             <img src={logo} alt="logo" />
           </Link>
-          <Link to="/payment" className="nav-item nav-btn res-nav">
+          <Link to="/Subscription" className={theme ?"nav-item nav-btn res-nav theme-set":"nav-item nav-btn res-nav"}>
             Subscription
           </Link>
-          <Link to="/" className="nav-item nav-btn res-nav ">
+          <Link to="/" className={theme ?"nav-item nav-btn res-nav  theme-set":"nav-item nav-btn res-nav "}>
             Products
           </Link>
-          <Link to="/" className="nav-item nav-btn res-nav">
-            For Teams
+          <Link to="/" className={theme ?"nav-item nav-btn res-nav theme-set":"nav-item nav-btn res-nav"}>
+            For Team
           </Link>
           <form>
             <input type="text" placeholder="Search..." />
@@ -55,11 +54,19 @@ const Navbar = ({ handleSlideIn }) => {
         </div>
         <div className="navbar-2">
           {user === null ? (
-            <Link to="/Auth" className="nav-item nav-links">
-              Log in
-            </Link>
+            <div>
+              <button className={theme ? "light-theme" : "dark-theme"} onClick={()=>handleTheme()}>
+                {theme ? "Light" : "Dark "}
+              </button>
+              <Link to="/Auth" className="nav-item nav-links">
+                Log in
+              </Link>
+            </div>
           ) : (
             <>
+              <button className={theme ? "light-theme" : "dark-theme"} onClick={()=>handleTheme()}>
+                {theme ? "Light" : "Dark "}
+              </button>
               <Avatar
                 backgroundColor="#009dff"
                 px="10px"

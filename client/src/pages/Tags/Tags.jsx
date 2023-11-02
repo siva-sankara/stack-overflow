@@ -3,11 +3,21 @@ import LeftSideBar from "../../components/leftSideBar/LeftSideBar";
 import TagsList from "./TagsList";
 import { tagsList } from "./Ttagslist";
 import "./Tagslist.css";
-const Tags = ({ slideIn, handleSlideIn }) => {
+const Tags = ({ slideIn, handleSlideIn, theme }) => {
   return (
-    <div className="home-container-1">
-      <LeftSideBar slideIn={slideIn} handleSlideIn={handleSlideIn} />
-      <div className="home-container-2 ">
+    <div
+      className={theme ? "home-container-1 theme-set-c-1" : "home-container-1"}
+    >
+      <LeftSideBar
+        slideIn={slideIn}
+        handleSlideIn={handleSlideIn}
+        theme={theme}
+      />
+      <div
+        className={
+          theme ? "home-container-2 theme-set-c-2" : "home-container-2"
+        }
+      >
         <h1 className="tags-h1"> Tags </h1>
         <p className="tags-p">
           A tag is a keyword or label that categorizes your question with other
@@ -18,7 +28,7 @@ const Tags = ({ slideIn, handleSlideIn }) => {
           question.
         </p>
         <div className="tags-list-container">
-          {tagsList.map((tag,index) => {
+          {tagsList.map((tag, index) => {
             return <TagsList tag={tag} key={index} />;
           })}
         </div>

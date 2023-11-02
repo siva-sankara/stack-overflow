@@ -2,7 +2,7 @@ import React from "react";
 import "./LeftSideBar.css";
 import Globe from "../../asserts/Globe.svg";
 import { NavLink } from "react-router-dom";
-const LeftSideBar = ({ slideIn, handleSlideIn }) => {
+const LeftSideBar = ({ slideIn, handleSlideIn , theme }) => {
   const slideInStyle = {
     transform: "translateX(0%)",
   };
@@ -12,7 +12,7 @@ const LeftSideBar = ({ slideIn, handleSlideIn }) => {
   };
   return (
     <div
-      className="left-sidebar"
+      className={theme ?"left-sidebar theme-left-sidebar":"left-sidebar"}
       style={slideIn ? slideInStyle : slideOutStyle}
     >
       <nav className="side-nav">
@@ -54,6 +54,16 @@ const LeftSideBar = ({ slideIn, handleSlideIn }) => {
               style={{ paddingLeft: "40px" }}
             >
               <p>Users</p>
+            </NavLink>
+          </button>
+          <button onClick={() => handleSlideIn()} className="nav-btn">
+            <NavLink
+              to="/Subscription"
+              className="side-nav-links"
+              activeClass="active"
+              style={{ paddingLeft: "40px" }}
+            >
+              <p>Subscription</p>
             </NavLink>
           </button>
         </div>

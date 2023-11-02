@@ -1,50 +1,69 @@
-.right-sidebar{
+.right-sidebar {
     float: right;
     width: 300px;
     margin: 40px 0px 15px 24px;
     font-size: 15px;
 }
-.widget{
+
+.widget {
     margin-top: 10px;
-    box-shadow:  3px 3px 10px rgb(0 0 0/5%),
-    -3px -3px 10px rgb(0 0 0/5%);
+    box-shadow: 3px 3px 10px rgb(0 0 0/5%),
+        -3px -3px 10px rgb(0 0 0/5%);
 }
 
-.widget h4{
+.widget h4 {
     background-color: #fbf3d5;
     margin: 0%;
     padding: 15px;
     border: solid 1px #f1e5bc;
     font-size: 13px;
 }
-.right-sidebar-div-1{
+
+.theme-widget h4 {
+    background-color: #76662f;
+}
+
+.right-sidebar-div-1 {
     background-color: #fdf7e2;
     padding: 15px;
     border: solid 1px #f1e5bc;
 }
-.right-sidebar-div-1 .right-sidebar-div-2{
+
+.theme-rs-div-1 {
+    background-color: #9f9a87;
+}
+
+.right-sidebar-div-1 .right-sidebar-div-2 {
     display: flex;
     align-items: flex-start;
-    justify-content:space-evenly ;
+    justify-content: space-evenly;
 }
+
 .right-sidebar-div-1 .right-sidebar-div-2 p {
     margin-left: 10px;
     margin-top: 0%;
     font-size: 14px;
 }
-.widget-tags{
-  
+
+.widget-tags {
+
     margin-top: 40px;
     box-shadow: 3px 3px 10px rgb(0 0 0/5%),
-    -3px -3px 10px rgb(0 0 0/5%);
+        -3px -3px 10px rgb(0 0 0/5%);
 }
-.widget-tags h3{
+
+.widget-tags h3 {
     margin: 0%;
     padding: 15px;
     background-color: #f8f9f9;
     border: solid 1px #e3e6e8;
 }
-.widget-tags-div{
+
+.theme-widget-tags h3 {
+    background-color: #c8b060;
+}
+
+.widget-tags-div {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -52,6 +71,7 @@
     border: solid 1px #e3e6e8;
     padding: 10px;
 }
+
 .widget-tags-div p {
     padding: 5px;
     background-color: #e1ecf4;
@@ -59,8 +79,14 @@
     font-size: 14px;
     border-radius: 2px;
 }
+
+.theme-widget-tags-div p {
+    background-color: #6e9435;
+    color: white;
+}
+
 @media screen and (max-width: 1020px) {
     .right-sidebar {
-      display: none;
+        display: none;
     }
-  }
+}

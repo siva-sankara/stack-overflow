@@ -14,6 +14,10 @@
     align-items: center;
 }
 
+.nav-theme-set {
+    background-color: #817e70;
+}
+
 .navbar {
     height: 100%;
     min-width: 85%;
@@ -60,15 +64,23 @@
 .nav-btn {
     cursor: pointer;
     border-radius: 20px;
-    padding: 10px 0px ;
+    padding: 10px 0px;
+}
+
+.theme-set {
+    color: white;
+}
+
+.theme-set:hover {
+    color: black;
 }
 
 .nav-item:hover,
-.slide-in-icon:hover{
+.slide-in-icon:hover {
     background-color: rgb(226, 226, 226);
 }
 
-.navbar .navbar-1 form  {
+.navbar .navbar-1 form {
     flex-grow: 0.5;
     padding: 0px 12px;
     position: relative;
@@ -100,21 +112,41 @@
 .nav-links:hover {
     background-color: #d3e4eb;
 }
+
+.light-theme,
+.dark-theme {
+    margin: 10px;
+    border: 1px solid gray;
+    padding: 2px 5px;
+    border-radius: 10px;
+    justify-self: auto;
+}
+
+.light-theme {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.dark-theme {
+    background-color: black;
+    color: white;
+}
+
+
 @media screen and (max-width: 1120px) {
     .navbar .navbar-1 form {
-      display: none;
+        display: none;
     }
-  }
-  
+}
+
 @media screen and (max-width: 760px) {
     .slide-in-icon {
-      display: block;
+        display: block;
     }
-  }
-  
-  @media screen and (max-width: 620px) {
+}
+
+@media screen and (max-width: 620px) {
     .navbar .navbar-1 .res-nav {
-      display: none;
+        display: none;
     }
-  }
-  
+}

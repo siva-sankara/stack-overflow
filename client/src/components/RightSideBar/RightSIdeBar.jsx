@@ -2,11 +2,11 @@ import React from 'react'
 import './RightSideBar.css'
 import Widget from './Widget'
 import WidgetTags from './WidgetTags'
-const RightSIdeBar = () => {
+const RightSIdeBar = ({theme}) => {
   return (
     <aside className='right-sidebar'>
-        <Widget />
-        <WidgetTags />
+        <Widget theme={theme} />
+        <WidgetTags theme={theme} />
     </aside>
   )
 }

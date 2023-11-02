@@ -15,7 +15,7 @@ import {
   voteQuestion,
 } from "../../actions/Question";
 
-const QuestionDetails = () => {
+const QuestionDetails = ({ theme }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
@@ -79,109 +79,7 @@ const QuestionDetails = () => {
       dispatch(voteQuestion(id, "downVote", user?.result._id));
     }
   };
-
-  // const questionList = [
-  //   {
-  //     _id: "1",
-  //     downVotes: 5,
-  //     upVotes: 0,
-  //     noOfAnswers: 2,
-  //     questionTitle: "What is a function?",
-  //     questionBody: "it meant to be",
-  //     questionTags: ["java", "node js", "cpp", "react js", "mongodb"],
-  //     userPosted: "mano",
-  //     askedOn: "jan 1",
-  //     userId: "101",
-  //     answer: [
-  //       {
-  //         answerBody: "this is the answer",
-  //         userAnswered: "Kumar",
-  //         answeredOn: "jan 2",
-  //         userId: 21,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     _id: "2",
-  //     downVotes: 5,
-  //     upVotes: 0,
-  //     noOfAnswers: 2,
-  //     questionTitle: "What is a function?",
-  //     questionBody: "it meant to be",
-  //     questionTags: ["java", "node js", "cpp", "react js", "mongodb"],
-  //     userPosted: "mano",
-  //     askedOn: "jan 1",
-  //     userId: "102",
-  //     answer: [
-  //       {
-  //         answerBody: "hello please refer the bellow link",
-  //         userAnswered: "Kumar",
-  //         answeredOn: "jan 2",
-  //         userId: 22,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     _id: "3",
-  //     downVotes: 5,
-  //     upVotes: 0,
-  //     noOfAnswers: 2,
-  //     questionTitle: "What is a function?",
-  //     questionBody: "it meant to be",
-  //     questionTags: ["java", "node js", "cpp", "react js", "mongodb"],
-  //     userPosted: "mano",
-  //     askedOn: "jan 1",
-  //     userId: "103",
-  //     answer: [
-  //       {
-  //         answerBody: "Answer",
-  //         userAnswered: "Kumar",
-  //         answeredOn: "jan 2",
-  //         userId: 23,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     _id: "4",
-  //     downVotes: 5,
-  //     upVotes: 0,
-  //     noOfAnswers: 2,
-  //     questionTitle: "What is a function?",
-  //     questionBody: "it meant to be",
-  //     questionTags: ["java", "node js", "cpp", "react js", "mongodb"],
-  //     userPosted: "mano",
-  //     askedOn: "jan 1",
-  //     userId: "104",
-  //     answer: [
-  //       {
-  //         answerBody: "Answer",
-  //         userAnswered: "Kumar",
-  //         answeredOn: "jan 2",
-  //         userId: 24,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     _id: "5",
-  //     downVotes: 5,
-  //     upVotes: 0,
-  //     noOfAnswers: 2,
-  //     questionTitle: "What is a function?",
-  //     questionBody: "it meant to be",
-  //     questionTags: ["java", "node js", "cpp", "react js", "mongodb"],
-  //     userPosted: "mano",
-  //     askedOn: "jan 1",
-  //     userId: "105",
-  //     answer: [
-  //       {
-  //         answerBody: "Answer",
-  //         userAnswered: "Kumar",
-  //         answeredOn: "jan 2",
-  //         userId: 25,
-  //       },
-  //     ],
-  //   },
-  // ];
+  console.log(questionList);
   return (
     <div className="question-details-page">
       {questionList.data === null ? (
@@ -225,7 +123,13 @@ const QuestionDetails = () => {
                             return <p key={tag}>{tag}</p>;
                           })}
                         </div>
-                        <div className="question-action-user">
+                        <div
+                          className={
+                            theme
+                              ? "question-action-user theme-que-act-user"
+                              : "question-action-user"
+                          }
+                        >
                           <div>
                             <button type="button" onClick={handleShare}>
                               Share
@@ -264,29 +168,36 @@ const QuestionDetails = () => {
                         key={question._id}
                         question={question}
                         handleShare={handleShare}
+                        theme={theme}
                       />
                     </section>
                   )}
                   <section className="post-ans-container">
-                    <h3>Your Answer</h3>
-                    <form
-                      onSubmit={(e) => {
-                        handlePostAnswer(e, question.answer.length);
-                      }}
-                    >
-                      <textarea
-                        name=""
-                        id=""
-                        cols="30"
-                        rows="10"
-                        onChange={(e) => setAnswer(e.target.value)}
-                      ></textarea>
-                      <input
-                        type="submit"
-                        className="post-ans-btn"
-                        value="Post Your Answer"
-                      />
-                    </form>
+                    {
+                      <div>
+                        {" "}
+                        <h3>Your Answer</h3>
+                        <form
+                          style={{ display: "flex", flexDirection: "column" }}
+                          onSubmit={(e) => {
+                            handlePostAnswer(e, question.answer.length);
+                          }}
+                        >
+                          <textarea
+                            name=""
+                            id=""
+                            cols="30"
+                            rows="10"
+                            onChange={(e) => setAnswer(e.target.value)}
+                          ></textarea>
+                          <input
+                            type="submit"
+                            className="post-ans-btn"
+                            value="Post Your Answer"
+                          />
+                        </form>
+                      </div>
+                    }
                     <p>
                       Browse other Question tagged
                       {question.questionTags.map((tag) => {

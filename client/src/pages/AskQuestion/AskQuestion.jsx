@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -14,6 +14,8 @@ const AskQuestion = () => {
   const [questionTags, setQuestionTags] = useState("");
 
   var user = useSelector((state) => state.currentUserReducer);
+  
+  console.log(user.result);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user) {

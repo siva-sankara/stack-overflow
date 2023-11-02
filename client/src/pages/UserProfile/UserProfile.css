@@ -17,6 +17,9 @@
 .user-name p{
     color: #7e7e7e;
 }
+.theme-user-name p{
+    color: black;
+}
 .edit-profile-btn{
     padding: 8px 10px;
     border: solid 1px #7e7e7e;
@@ -35,6 +38,9 @@
 .edit-profile-title-2{
     color: gray;
     font-weight: 400;
+}
+.theme-edit-prf-title-2{
+    color: black;
 }
 .edit-profile-form{
     padding: 20px;

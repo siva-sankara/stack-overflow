@@ -23,7 +23,7 @@ const updateProfile = async (req, res) => {
   const { id: _id } = req.params;
   const { name, about, tags } = req.body;
   if (!mongoose.Types.ObjectId.isValid(_id)) {
-    return res.status(404).send("question unavailable...");
+    return res.status(404).send("profile unavailable...");
   }
   try {
     const updateProfile = await userModel.findByIdAndUpdate(
@@ -43,4 +43,27 @@ const updateProfile = async (req, res) => {
   }
 };
 
-module.exports = { getAllUsers, updateProfile };
+const updateSubScription = async (req, res) => {
+  const { id: _id } = req.params;
+  const { noOfQuestinOfPlan, subscriptionPlan} = req.body;
+  console.log( noOfQuestinOfPlan, subscriptionPlan);
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    return res.status(404).send("profile unavailable...");
+  }
+  try {
+    const updateProfile = await userModel.findByIdAndUpdate(
+      _id,
+      {
+        $set: {
+          noOfQuestinOfPlan: noOfQuestinOfPlan,
+          subscriptionPlan: subscriptionPlan,
+        },
+      },
+      { new: true }
+    );
+    res.status(200).json(updateProfile);
+  } catch (error) {
+    res.status(405).json({ message: error.message });
+  }
+};
+module.exports = { getAllUsers, updateProfile ,updateSubScription};

@@ -9,10 +9,10 @@ module.exports.chatBotInput = async (req, res) => {
       messages: [{ role: "user", content: `${question}` }],
       model: "gpt-3.5-turbo",
     });
-   
+   console.log(chat, "siva");
     const answer = chat.choices[0].message.content;
     const pair = await ChatBotModel.create({ question, answer });
-   
+   console.log(pair);
     res.status(200).json({
         success : true,
         message : "your output",

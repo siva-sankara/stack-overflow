@@ -9,7 +9,7 @@ import moment from "moment";
 import EditProfile from "./EditProfile";
 import ProfileBio from "./ProfileBio";
 
-const UserProfile = ({ slideIn, handleSlideIn }) => {
+const UserProfile = ({ slideIn, handleSlideIn, theme }) => {
   const { id } = useParams();
   const users = useSelector((state) => state.usersReducer);
   const currentProfile = users.filter((user) => user._id === id)[0];
@@ -18,9 +18,19 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
   const [Switch, setSwitch] = useState(false);
 
   return (
-    <div className="home-container-1 ">
-      <LeftSideBar slideIn={slideIn} handleSlideIn={handleSlideIn} />
-      <div className=" home-container-2">
+    <div
+      className={theme ? "home-container-1 theme-set-c-1" : "home-container-1"}
+    >
+      <LeftSideBar
+        slideIn={slideIn}
+        handleSlideIn={handleSlideIn}
+        theme={theme}
+      />
+      <div
+        className={
+          theme ? "home-container-2 theme-set-c-2" : "home-container-2"
+        }
+      >
         <section>
           <div className="user-details-container">
             <div className="user-details">
@@ -33,7 +43,9 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
               >
                 {currentProfile?.name.charAt(0).toUpperCase()}
               </Avatar>
-              <div className="user-name">
+              <div
+                className={theme ? "user-name  theme-user-name" : "user-name"}
+              >
                 <h1>{currentProfile?.name}</h1>
                 <p>Jioned {moment(currentProfile?.jionedOn).fromNow()} </p>
               </div>
@@ -51,7 +63,11 @@ const UserProfile = ({ slideIn, handleSlideIn }) => {
           </div>
           <div>
             {Switch ? (
-              <EditProfile currentUser={currentUser} setSwitch={setSwitch} />
+              <EditProfile
+                currentUser={currentUser}
+                setSwitch={setSwitch}
+                theme={theme}
+              />
             ) : (
               <ProfileBio currentProfile={currentProfile} />
             )}

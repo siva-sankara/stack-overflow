@@ -13,14 +13,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  image: {
-    public_id: {
-      type: String,
-    },
-    url: {
-      type: String,
-    },
-  },
+ subscriptionPlan :{
+  type:String,
+  default : "sai",
+ },
+ noOfQuestinOfPlan:{
+  type :Number,
+  default :1
+ },
   about: {
     type: String,
   },

@@ -9,7 +9,7 @@ API.interceptors.request.use((req) => {
   if (localStorage.getItem("Profile")) {
     req.headers.authorization = `Bearer ${
       JSON.parse(localStorage.getItem("Profile")).token
-    }`; 
+    }`;
   }
   return req;
 });
@@ -17,11 +17,9 @@ API.interceptors.request.use((req) => {
 export const logIn = (authData) => API.post("/user/login", authData);
 export const signUp = (authData) => API.post("/user/signup", authData);
 
-//chatbot backend calls 
-export const sendQuery = (query) => API.post('/chatbot/chatInput',query)
-
-export const deleteQuery =()=> API.get('/chatbot/chatDelete')
-
+//chatbot backend calls
+export const sendQuery = (query) => API.post("/chatbot/chatInput", query);
+export const deleteQuery = () => API.get("/chatbot/chatDelete");
 
 export const postQuestion = (questionData) =>
   API.post("/questions/Ask", questionData);
@@ -44,3 +42,6 @@ export const fetchAllUsers = () => API.get("/user/getAllUsers");
 
 export const updateProfile = (id, updateData) =>
   API.patch(`/user/update/${id}`, updateData);
+  
+export const updateSubScription = (id, updateData) =>
+API.patch(`/user/updateSubscription/${id}`, updateData);

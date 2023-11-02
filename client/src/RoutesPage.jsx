@@ -12,22 +12,22 @@ import UserProfile from "./pages/UserProfile/UserProfile";
 import ChatBot from "./components/chatbot/ChatBot";
 import PaymnetPage from "./components/payment/PaymnetPage";
 
-const RoutesPage = ({ slideIn, handleSlideIn }) => {
+const RoutesPage = ({ slideIn, handleSlideIn, theme }) => {
   return (
     <div>
       <Routes>
         <Route
           path="/"
           exact
-          element={<Home slideIn={slideIn}  handleSlideIn={handleSlideIn} />}
+          element={<Home slideIn={slideIn}  handleSlideIn={handleSlideIn} theme={theme}/>}
         />
-        <Route path="/Auth" exact element={<Auth />} />
+        <Route path="/Auth" exact element={<Auth theme={theme} />}   />
         <Route path="/AskQuestion" exact element={<AskQuestion />} />
         <Route
           path="/Questions"
           exact
           element={
-            <Questions slideIn={slideIn} handleSlideIn={handleSlideIn} />
+            <Questions slideIn={slideIn} handleSlideIn={handleSlideIn} theme={theme} />
           }
         />
 
@@ -38,38 +38,39 @@ const RoutesPage = ({ slideIn, handleSlideIn }) => {
             <DisplayQuestionsList
               slideIn={slideIn}
               handleSlideIn={handleSlideIn}
+              theme={theme}
             />
           }
         />
         <Route
           path="/Tags"
           exact
-          element={<Tags slideIn={slideIn} handleSlideIn={handleSlideIn} />}
+          element={<Tags slideIn={slideIn} handleSlideIn={handleSlideIn} theme={theme} />}
         />
         <Route
           path="/Users"
           exact
-          element={<Users slideIn={slideIn} handleSlideIn={handleSlideIn} />}
+          element={<Users slideIn={slideIn} handleSlideIn={handleSlideIn} theme={theme}/>}
         />
         <Route
           path="/Users/:id"
           exact
           element={
-            <UserProfile slideIn={slideIn} handleSlideIn={handleSlideIn} />
+            <UserProfile slideIn={slideIn} handleSlideIn={handleSlideIn} theme={theme} />
           }
         />
         <Route
           path="/chatBot"
           exact
           element={
-            <ChatBot />
+            <ChatBot theme={theme} />
           }
         />
          <Route
-          path="/payment"
+          path="/Subscription"
           exact
           element={
-            <PaymnetPage />
+            <PaymnetPage  slideIn={slideIn}  handleSlideIn={handleSlideIn} theme={theme} />
           }
         />
       </Routes>

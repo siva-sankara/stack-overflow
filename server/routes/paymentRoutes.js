@@ -1,6 +1,8 @@
+const mongoose = require("mongoose");
 const router = require("express").Router();
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
+const userModel = require("../models/userModel");
 
 router.post("/pay", async (req, res) => {
   try {
@@ -35,7 +37,6 @@ router.post("/verify", async (req, res) => {
       .createHmac("sha256", process.env.KEY_SECRET)
       .update(sign.toString())
       .digest("hex");
-
     if (razorpay_signature === expectedSign) {
       return res.status(200).json({ message: "Payment verified successfully" });
     } else {
@@ -46,5 +47,32 @@ router.post("/verify", async (req, res) => {
     console.log(error);
   }
 });
+
+router.post ("/updateSubscription/:id", async (req, res) => {
+    const { id: _id } = req.params;
+    try{
+      const {subscriptionPlan ,noOfQuestion} = req.body;
+      const userId = new mongoose.Types.ObjectId(_id);
+      console.log(userId, subscriptionPlan ,noOfQuestion);
+      const updateUser = await userModel.findByIdAndUpdate(userId , {
+        subscriptionPlan : subscriptionPlan,
+        noOfQuestinOfPlan : noOfQuestion
+      }, {new : true});
+      
+      console.log(updateUser);
+      return res.status(200).json({
+        success : true,
+        updateUser
+      })
+
+    }catch(error){
+      console.log("erro is ", error.message)
+      res.status(500).json({
+        success : false,
+        message : error.message
+      })
+    }
+});
+
 const paymentRoutes = router;
 module.exports = paymentRoutes;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as api from "../../api";
 import './ChatBot.css'
-const ChatBot = () => {
+const ChatBot = ({theme}) => {
   const [input, setInput] = useState("");
   const [query, setQuery] = useState([]);
 
@@ -9,7 +9,6 @@ const ChatBot = () => {
     try {
       let question = { question: `"${input}" reply me in 30 words` };
       const response = await api.sendQuery(question);
-
       const pair = { question: input, answer: response.data.answer };
       setQuery((PrevData) => {
         return [...PrevData, pair];
@@ -20,7 +19,7 @@ const ChatBot = () => {
     }
   };
   return (
-    <div className="chatbot">
+    <div className={theme?"chatbot theme-chatbot":"chatbot"}>
       <div className="show-output">
         {query.length === 0 ? (
           <div>
@@ -37,7 +36,7 @@ const ChatBot = () => {
           })
         )}
       </div>
-      <div className="give-input">
+      <div className={theme ?"give-input theme-given-input":"give-input"}>
         <input type="text" className="question-input" onChange={(e) => setInput(e.target.value)} />
         <button onClick={sendMessage }className="send-btn">Send</button>
       </div>

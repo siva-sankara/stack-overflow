@@ -15,7 +15,7 @@ function App() {
   }, [dispatch]);
   
   const [slideIn, setSlideIn] = useState(true);
-
+  const [theme, setTheme] = useState(false);
   useEffect(() => {
     if (window.innerWidth <= 760) {
       setSlideIn(false);
@@ -26,11 +26,14 @@ function App() {
       setSlideIn((state) => !state);
     }
   };
+  const handleTheme = () => {
+      setTheme((state) => !state);
+  };
   return ( 
     <div className="App">
       <Router>
-        <Navbar handleSlideIn={handleSlideIn}  />
-        <RoutesPage slideIn={slideIn} handleSlideIn={handleSlideIn} />
+        <Navbar handleSlideIn={handleSlideIn} theme={theme}  handleTheme={handleTheme} />
+        <RoutesPage slideIn={slideIn} theme={theme} handleSlideIn={handleSlideIn} />
       </Router>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 
-const WidgetTags = () => {
+const WidgetTags = ({theme}) => {
   const tags = [
     "c",
     "css",
@@ -20,9 +20,9 @@ const WidgetTags = () => {
   ];
 
   return (
-    <div className="widget-tags">
+    <div className={theme ? "widget-tags theme-widget-tags" :"widget-tags"}>
       <h3>Watched tags</h3>
-      <div className="widget-tags-div">
+      <div className={theme ?"widget-tags-div theme-widget-tags-div":"widget-tags-div"}>
         {tags.map((eachtag) => {
           return <p key={eachtag}>{eachtag}</p>;
         })}

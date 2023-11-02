@@ -6,13 +6,19 @@ import { useSelector } from "react-redux";
 import ChatBot from "../chatbot/ChatBot";
 import bot from "../../asserts/chatbot.jpg";
 import * as api from '../../api'
-const HomeMainBar = () => {
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const HomeMainBar = ({ theme}) => {
+  const notify = () => toast("Wow so easy!");
+
   const location = useLocation();
   const user = 1;
   const navigate = useNavigate();
   const [ChatBotIn, setChatBotIn] = useState(false);
   const questionList = useSelector((state) => state.questionsReducer);
-
+  const userLoggedIn =  useSelector((state)=> state.currentUserReducer );
   const DeleteChatInMongoose=async()=>{
     try {
       await api.deleteQuery()
@@ -25,8 +31,8 @@ const HomeMainBar = () => {
   }
 
   const checkAuth = () => {
-    if (user === null) {
-      alert("login or signup to ask a question");
+    if( userLoggedIn === null) { 
+      alert("Login required");
       navigate("/Auth");
     } else {
       navigate("/AskQuestion");
@@ -59,14 +65,14 @@ const HomeMainBar = () => {
         ) : (
           <>
             <p>{questionList.data.length} questions</p>
-            <QuestionsList questionList={questionList.data} />
+            <QuestionsList questionList={questionList.data} theme={theme} />
           </>
         )}
       </div>
       {ChatBotIn && (
-        <div className="chatBot-up">
+        <div className={theme ? "chatBot-up theme-chatBot-up":"chatBot-up"}>
           <div className="chat-container">
-            <ChatBot />
+            <ChatBot theme={theme}/>
           </div>
         </div>
       )}

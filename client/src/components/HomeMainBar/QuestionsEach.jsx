@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
-const QuestionsEach = ({question}) => {
+const QuestionsEach = ({question , theme}) => {
   
   return (
-    <div className='display-question-container'>
+    <div className={theme ?'display-question-container theme-ques-con':'display-question-container'}>
       <div className="display-votes-ans">
         <p>{question.upVote.length - question.downVote.length}</p>
         <p>votes</p>

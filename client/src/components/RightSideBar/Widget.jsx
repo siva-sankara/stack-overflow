@@ -3,11 +3,11 @@ import "./RightSideBar.css";
 import comment from "../../asserts/comment-alt-solid.svg";
 import pen from "../../asserts/pen-solid.svg";
 import blacklogo from "../../asserts/blacklogo.svg";
-const Widget = () => {
+const Widget = ({theme}) => {
   return (
-    <div className="widget">
+    <div className={theme ? "widget theme-widget":"widget"}>
       <h4>The Overflow Blog</h4>
-      <div className="right-sidebar-div-1">
+      <div className={theme ?"right-sidebar-div-1 theme-rs-div-1":"right-sidebar-div-1"}>
         <div className="right-sidebar-div-2">
           <img src={pen} alt="pen" width="18" />
           <p>
@@ -21,7 +21,7 @@ const Widget = () => {
         </div>
       </div>
       <h4>Featured on Meta</h4>
-      <div className="right-sidebar-div-1">
+      <div className={theme ?"right-sidebar-div-1 theme-rs-div-1":"right-sidebar-div-1"}>
         <div className="right-sidebar-div-2">
           <img src={comment} alt="pen" width="18" />
           <p>Review queue workflow - Final release....</p>
@@ -39,7 +39,7 @@ const Widget = () => {
       </div>
 
       <h4>Hot Meta Posts</h4>
-      <div className="right-sidebar-div-1">
+      <div className={theme ?"right-sidebar-div-1 theme-rs-div-1":"right-sidebar-div-1"}>
         <div className="right-sidebar-div-2">
           <p>38</p>
           <p>Temporary policy: Generative AI (e.g., ChatGPT) is banned</p>

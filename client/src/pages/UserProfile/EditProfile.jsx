@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateProfile } from "../../actions/Users";
-import profile from "../../asserts/profileimg.jpg";
 
-const EditProfile = ({ currentUser, setSwitch }) => {
+const EditProfile = ({ currentUser, setSwitch, theme }) => {
   const dispatch = useDispatch();
   const [name, setName] = useState(currentUser?.result?.name);
   const [about, setAbout] = useState(currentUser?.result?.about);
@@ -34,7 +33,7 @@ const EditProfile = ({ currentUser, setSwitch }) => {
         })
       );
     } else {
-      dispatch(updateProfile(currentUser?.result?._id, { name, about, tags}));
+      dispatch(updateProfile(currentUser?.result?._id, { name, about, tags }));
     }
     setSwitch(false);
   };
@@ -42,19 +41,15 @@ const EditProfile = ({ currentUser, setSwitch }) => {
   return (
     <div>
       <h1 className="edit-profile-title">Edit Your Profile</h1>
-      <h2 className="edit-profile-title-2">Public Infromation</h2>
-      {/* <form>
-        <label htmlFor="file-upload" className="custom-file-upload">
-          <img src={profileImg||profile} alt="profile" />
-        </label>
-        <input
-          type="file"
-          label="Image"
-          name="myFile"
-          id="file-upload"
-          accept=".jpeg , .png , .jpg"
-        />
-      </form> */}
+      <h2
+        className={
+          theme
+            ? "edit-profile-title-2 theme-edit-prf-title-2"
+            : "edit-profile-title-2"
+        }
+      >
+        Public Infromation
+      </h2>
       <form onSubmit={handleSubmit} className="edit-profile-form">
         <div className="form-outline ">
           <input
