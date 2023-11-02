@@ -38,7 +38,11 @@ const Navbar = ({ handleSlideIn, theme, handleTheme }) => {
           <Link to="/" className={theme ?"nav-item nav-logo theme-set ":"nav-item nav-logo"}>
             <img src={logo} alt="logo" />
           </Link>
+<<<<<<< HEAD
           <Link to="/Subscription" className={theme ?"nav-item nav-btn res-nav theme-set":"nav-item nav-btn res-nav"}>
+=======
+          <Link to="/Subscription" className="nav-item nav-btn res-nav">
+>>>>>>> 0e0477ffc06093ff8bfda3eda1efbc083ee33049
             Subscription
           </Link>
           <Link to="/" className={theme ?"nav-item nav-btn res-nav  theme-set":"nav-item nav-btn res-nav "}>

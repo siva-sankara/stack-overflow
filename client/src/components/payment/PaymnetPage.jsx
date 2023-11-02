@@ -4,11 +4,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./payment.css";
 import LeftSideBar from "../leftSideBar/LeftSideBar";
+<<<<<<< HEAD
 import { updateSubScription } from "../../actions/Users";
 // const BASE_URL = "http://localhost:8080";
 const BASE_URL = "https://stack-overflow-backend-gwva.onrender.com";
 
 const PaymnetPage = ({ slideIn, handleSlideIn, theme }) => {
+=======
+// const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://stack-overflow-backend-gwva.onrender.com";
+
+const PaymnetPage = ({ slideIn, handleSlideIn }) => {
+>>>>>>> 0e0477ffc06093ff8bfda3eda1efbc083ee33049
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [amount, setAmount] = useState({
@@ -57,6 +64,7 @@ const PaymnetPage = ({ slideIn, handleSlideIn, theme }) => {
           alert("please select valid subscription");
         } else {
           const { data } = await axios.post(orderUrl, { amount: amount.price });
+<<<<<<< HEAD
           initPayment(data.data);
         }
         const updationUrl = `${BASE_URL}/payment/updateSubscription/${user.result._id}`;
@@ -71,6 +79,11 @@ const PaymnetPage = ({ slideIn, handleSlideIn, theme }) => {
             subscriptionPlan: userUpdation.data.updateUser.subscriptionPlan,
           })
         );
+=======
+          console.log(data);
+          initPayment(data.data);
+        }
+>>>>>>> 0e0477ffc06093ff8bfda3eda1efbc083ee33049
       } catch (error) {
         console.log(error);
       }
@@ -80,6 +93,7 @@ const PaymnetPage = ({ slideIn, handleSlideIn, theme }) => {
     }
   };
   return (
+<<<<<<< HEAD
     <div
       className={
         theme
@@ -108,6 +122,16 @@ const PaymnetPage = ({ slideIn, handleSlideIn, theme }) => {
             onClick={() =>
               setAmount({ name: "Normal", price: 100, noOfQuestion: 3 })
             }
+=======
+    <div className="homme-conatiner-1 subscription-main">
+      <LeftSideBar slideIn={slideIn} handleSlideIn={handleSlideIn} />
+      <div className="home-container-2 sub-subscription">
+        <u><h1 className="subscription-heading">Subscription Plan's</h1></u>
+        <div className="select-subscription">
+          <div
+            className="each-subscription"
+            onClick={() => setAmount({ name: "Normal", price: 100 })}
+>>>>>>> 0e0477ffc06093ff8bfda3eda1efbc083ee33049
           >
             <h2>Normal</h2>
             <hr className="hr-line" />
@@ -115,9 +139,13 @@ const PaymnetPage = ({ slideIn, handleSlideIn, theme }) => {
           </div>
           <div
             className="each-subscription"
+<<<<<<< HEAD
             onClick={() =>
               setAmount({ name: "Silver", price: 500, noOfQuestion: 5 })
             }
+=======
+            onClick={() => setAmount({ name: "Silver", price: 500 })}
+>>>>>>> 0e0477ffc06093ff8bfda3eda1efbc083ee33049
           >
             <h2>Silver</h2>
             <hr className="hr-line" />
@@ -126,9 +154,13 @@ const PaymnetPage = ({ slideIn, handleSlideIn, theme }) => {
           </div>
           <div
             className="each-subscription"
+<<<<<<< HEAD
             onClick={() =>
               setAmount({ name: "Gold", price: 1000, noOfQuestion: 10 })
             }
+=======
+            onClick={() => setAmount({ name: "Gold", price: 1000 })}
+>>>>>>> 0e0477ffc06093ff8bfda3eda1efbc083ee33049
           >
             <h2>Gold</h2>
             <hr className="hr-line" />
